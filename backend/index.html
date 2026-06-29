@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TRIALYTIX</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* LEFT SIDE */
+        .left {
+            width: 40%;
+            background: linear-gradient(135deg, #1f3c88, #4b79a1);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .left h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .left p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* RIGHT SIDE */
+        .right {
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #1f3c88;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #163172;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT -->
+    <div class="left">
+        <h1>TRIALYTIX</h1>
+        <p>Clinical Trial Success Prediction System</p>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+        <div class="card">
+            <h2>Enter Trial Details</h2>
+
+            <form action="/predict" method="post">
+
+                <label>Drug Name</label>
+                <input type="text" name="drug_name" placeholder="e.g. Lexonex" required>
+
+                <label>Disease Area</label>
+                <select name="disease" required>
+                    <option value="">Select Disease</option>
+                    <option>Breast Cancer</option>
+                    <option>Lung Cancer</option>
+                    <option>Type 2 Diabetes</option>
+                    <option>Alzheimer’s</option>
+                </select>
+
+                <label>Enrollment</label>
+                <input type="number" name="enrollment"
+                       min="10" max="5000"
+                       placeholder="e.g. 250 (10 - 5000)" required>
+
+                <label>Start Year</label>
+                <input type="number" name="start_year"
+                       min="1997" max="2026"
+                       placeholder="e.g. 2022 (1997 - 2026)" required>
+
+                <label>Phase</label>
+                <select name="phase" required>
+                    <option value="">Select Phase</option>
+                    <option>Phase 1</option>
+                    <option>Phase 2</option>
+                    <option>Phase 3</option>
+                </select>
+
+                <button type="submit">Analyze Trial</button>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

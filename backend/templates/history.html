@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TRIALYTIX History</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #0f2027;
+    color: white;
+    padding: 40px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #555;
+    text-align: center;
+}
+
+th {
+    background: #0072ff;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #0072ff;
+    border: none;
+    color: white;
+    border-radius: 8px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>TRIALYTIX - Prediction History</h2>
+
+<table>
+<tr>
+    <th>ID</th>
+    <th>Drug</th>
+    <th>Disease</th>
+    <th>Phase</th>
+    <th>Enrollment</th>
+    <th>Base %</th>
+    <th>Adjusted %</th>
+    <th>Risk</th>
+</tr>
+
+{% for row in rows %}
+<tr>
+    <td>{{row[0]}}</td>
+    <td>{{row[1]}}</td>
+    <td>{{row[2]}}</td>
+    <td>{{row[3]}}</td>
+    <td>{{row[4]}}</td>
+    <td>{{row[6]}}</td>
+    <td>{{row[7]}}</td>
+    <td>{{row[8]}}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/"><button>Back</button></a>
+
+</body>
+</html>

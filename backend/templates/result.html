@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TRIALYTIX Intelligence Report</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.header {
+    margin-top: 50px;
+    font-size: 48px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+}
+
+.header span {
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dashboard-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard {
+    margin-top: 50px;
+    width: 100%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0px 15px 40px rgba(0,0,0,0.4);
+}
+
+.metric-title {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.metric-value {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.probability {
+    font-size: 36px;
+    font-weight: 900;
+}
+
+.recommendation {
+    grid-column: span 2;
+}
+
+button {
+    margin-top: 40px;
+    padding: 14px 30px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">💊<span>TRIALYTIX</span></div>
+
+<div style="margin-top:20px;">
+    <strong>Drug:</strong> {{drug_name}} |
+    <strong>Disease:</strong> {{disease}} |
+    <strong>Phase:</strong> {{phase}} |
+    <strong>Enrollment:</strong> {{enrollment}}
+</div>
+
+<div class="dashboard-wrapper">
+    <div class="dashboard">
+
+        <div class="card">
+            <div class="metric-title">Base ML Probability</div>
+            <div class="probability">{{base_prob}}%</div>
+        </div>
+
+        <div class="card">
+            <div class="metric-title">Disease Adjusted Probability</div>
+            <div class="probability">{{adjusted_prob}}%</div>
+        </div>
+
+        <div class="card">
+            <div class="metric-title">Development Risk Level</div>
+            <div class="metric-value">{{risk_level}}</div>
+        </div>
+
+        <div class="card">
+            <div class="metric-title">Operational Complexity Score</div>
+            <div class="metric-value">{{complexity}}</div>
+        </div>
+
+        <div class="card">
+            <div class="metric-title">Historical Benchmark</div>
+            <div class="metric-value">{{benchmark}}%</div>
+        </div>
+
+        <div class="card recommendation">
+            <div class="metric-title">Strategic Recommendation</div>
+            <div class="metric-value">{{recommendation}}</div>
+        </div>
+
+    </div>
+</div>
+
+<form action="/" method="get">
+    <button>Analyze Another Trial</button>
+</form>
+
+</body>
+</html>

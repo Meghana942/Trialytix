@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TRIALYTIX</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+/* MAIN LAYOUT */
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+}
+
+/* LEFT SIDE */
+.left {
+    max-width: 400px;
+}
+
+.header {
+    font-size: 56px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+}
+
+.header span {
+    margin-left: 5px;
+    background: linear-gradient(90deg, #00c6ff, #845ec2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtext {
+    margin-top: 10px;
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+/* RIGHT CARD (UNCHANGED STYLE) */
+.card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 20px;
+    width: 380px;
+    box-shadow: 0px 15px 40px rgba(0,0,0,0.4);
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+select option {
+    color: black;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT SIDE -->
+    <div class="left">
+        <div class="header">💊<span>TRIALYTIX</span></div>
+        <div class="subtext">
+            Clinical Trial Success Prediction System
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE (YOUR SAME CARD) -->
+    <div class="card">
+
+        <form action="/predict" method="post">
+
+            <label>Drug Name</label>
+            <input type="text" name="drug_name" required>
+
+            <label>Disease Area</label>
+            <select name="disease">
+                <option>Breast Cancer</option>
+                <option>Lung Cancer</option>
+                <option>Type 2 Diabetes</option>
+                <option>Alzheimer’s</option>
+            </select>
+
+            <label>Enrollment</label>
+            <input type="number" name="enrollment" placeholder="e.g., 250" required>
+
+            <label>Start Year</label>
+            <input type="number" name="start_year" min="1990" max="2030" placeholder="e.g., 2022" required>
+
+            <label>Phase</label>
+            <select name="phase">
+                <option>Phase 1</option>
+                <option>Phase 2</option>
+                <option>Phase 3</option>
+            </select>
+
+            <button type="submit">Analyze Trial</button>
+
+        </form>
+
+        <a href="/history">
+            <button>View History</button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
