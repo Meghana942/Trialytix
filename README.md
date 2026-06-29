@@ -52,6 +52,21 @@ Trialytix
 - Deployment on Render/AWS
 
 ---
+---
+
+## 📸 Application Screenshots
+
+### Home Page
+
+![Home Page](home-page.png)
+
+### Prediction Result
+
+![Prediction Result](prediction-result.png)
+
+### Prediction History
+
+![Prediction History](prediction-history.png)
 
 ## Author
 
